@@ -31,22 +31,7 @@ export const clientReviews = [
     review:
       "Muzamil is an exceptional developer. He has a deep understanding of React and Next.js, and his attention to detail is impressive. He delivered our project ahead of schedule and was always available for feedback. I highly recommend him!",
   },
-  {
-    id: 2,
-    name: "Raybit Technologies Private Limited",
-    position: "FrontEnd Developer",
-    img: "assets/raybit.jpeg",
-    review:
-      "Muzamil is an exceptional developer. He has a deep understanding of React and Next.js, and his attention to detail is impressive. He delivered our project ahead of schedule and was always available for feedback. I highly recommend him!",
-  },
-  {
-    id: 3,
-    name: "Raybit Technologies Private Limited",
-    position: "FrontEnd Developer",
-    img: "assets/raybit.jpeg",
-    review:
-      "Muzamil is an exceptional developer. He has a deep understanding of React and Next.js, and his attention to detail is impressive. He delivered our project ahead of schedule and was always available for feedback. I highly recommend him! ",
-  },
+
 
 ];
 
@@ -236,6 +221,38 @@ export const myProjects = [
       },
     ],
   },
+  {
+    title: "Subscription Tracker -Backend",
+    desc: "The Subscription Tracker task involved creating a backend system to manage user subscriptions. The project focused on building RESTful APIs, user authentication, and database management, ensuring secure and efficient data handling.",
+    subdesc: "Built with Node.js, Express.js, and MongoDB, this task highlights expertise in creating scalable backend applications. It features secure authentication, efficient database queries, and RESTful API design, showcasing proficiency in modern web development practices.",
+
+    href: "",
+    texture: "/textures/project/project1.mp4",
+    logo: "/assets/mern.png",
+    logoStyle: {
+      backgroundColor: "#1C1A43",
+      border: "0.2px solid #252262",
+      boxShadow: "0px 0px 60px 0px #635BFF4D",
+    },
+    spotlight: "/assets/spotlight5.png",
+    tags: [
+      {
+        id: 1,
+        name: "Node.js",
+        path: "/assets/node.png",
+      },
+      {
+        id: 2,
+        name: "Express.js",
+        path: "assets/express.png",
+      },
+      {
+        id: 3,
+        name: "MongoDB",
+        path: "/assets/mongodb.png",
+      },
+    ],
+  }
 ];
 
 export const calculateSizes = (isSmall, isMobile, isTablet) => {
@@ -303,5 +320,15 @@ export const workExperiences = [
       "Worked as a Front-End Developer at Raybit Technologies. Specialized in building responsive and interactive web applications using React, Next.js, TailwindCSS, Three.js, and Framer Motion. Delivered high-quality projects with a focus on performance and user experience.",
     icon: "/assets/react.svg", // Replace with an appropriate icon if needed
     animation: "victory",
+  },
+  {
+    id: 4,
+    name: "Full Stack MERN ",
+    pos: "Full Stack Developer",
+    duration: "March 2025 - May 2025",
+    title:
+      "Worked as a Full Stack Developer on various projects using the MERN stack. Gained experience in building RESTful APIs with Node.js and Express, as well as developing dynamic front-end applications with React and Redux.",
+    icon: "/assets/mern-fullstack.svg", // Replace with an appropriate icon if needed
+    animation: "clapping",
   },
 ];
