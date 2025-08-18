@@ -8,10 +8,7 @@ import Contact from './sections/Contact'
 import Footer from './sections/Footer'
 import WorkExperience from './sections/Experience'
 
-// import { Canvas } from '@react-three/fiber'
-// import { OrbitControls } from '@react-three/drei'
-// import { Suspense } from 'react'
-// import { Preload } from '@react-three/drei'
+
 const App = () => {
   return (
     <main className='max-w-7xl mx-auto'>
@@ -23,6 +20,7 @@ const App = () => {
       <WorkExperience />
       <Contact />
       <Footer />
+
     </main>
   )
 }

@@ -21,7 +21,7 @@ const About = () => {
             <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-1 gap-5 h-full">
                 <div className="col-span-1 xl:row-span-3">
                     <div className="grid-container">
-                        <Canvas className="w-full h-[275px]">
+                        <Canvas className="max-w-full h-[275px]">
                             <ambientLight intensity={0.5} />
                             <Carousel
                                 images={[
@@ -72,7 +72,7 @@ const About = () => {
                                 showGraticules
                                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
                                 bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-                                labelsData={[{ lat: 40, lng: -100, text: 'Rjieka, Croatia', color: 'white', size: 15 }]}
+                                labelsData={[{ lat: 40, lng: -100, text: 'Anantnag, J&K', color: 'white', size: 15 }]}
                             />
                         </div>
                         <div>

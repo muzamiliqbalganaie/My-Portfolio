@@ -18,8 +18,22 @@ const Contact = () => {
 
     const [form, setForm] = useState({ name: '', email: '', message: '' });
 
+    // Whitelist: allow letters, numbers, basic punctuation for name/email, allow most printable for message
+    const whitelistRegex = {
+        name: /^[a-zA-Z .,'-]{0,60}$/,
+        email: /^[a-zA-Z0-9@._-]{0,60}$/,
+        message: /^[\x20-\x7E\n\r]{0,1000}$/
+    };
+
+    // Encode HTML entities
+    const encodeHTML = (str) => str.replace(/[&<>'"/]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;', '/': '&#x2F;' }[c]));
+
     const handleChange = ({ target: { name, value } }) => {
-        setForm({ ...form, [name]: value });
+        let filtered = value;
+        if (whitelistRegex[name]) {
+            filtered = filtered.split('').filter(c => whitelistRegex[name].test(c)).join('');
+        }
+        setForm({ ...form, [name]: encodeHTML(filtered) });
     };
 
     const handleSubmit = (e) => {
@@ -44,7 +58,7 @@ const Contact = () => {
                     setLoading(false);
                     showAlert({
                         show: true,
-                        text: 'Thank you for your message 😃',
+                        text: 'Thanks for your message 😃🫡',
                         type: 'success',
                     });
 
@@ -55,7 +69,7 @@ const Contact = () => {
                             email: '',
                             message: '',
                         });
-                    }, [3000]);
+                    }, 3000);
                 },
                 (error) => {
                     setLoading(false);
@@ -74,14 +88,13 @@ const Contact = () => {
         <section className="c-space my-20" id="contact">
             {alert.show && <Alert {...alert} />}
 
-            <div className="relative min-h-screen flex items-center justify-center flex-col">
-                <img src="/assets/terminal.png" alt="terminal-bg" className="absolute inset-0 min-h-screen" />
+            <div className="relative min-h-screen flex items-center justify-center flex-col rounder-sm">
+                <img src="/assets/terminal.png" alt="" aria-hidden="true" role="presentation" className="absolute inset-0 min-h-screen object-fit max-w-full h-full " />
 
-                <div className="contact-container">
-                    <h3 className="head-text">Let's talk</h3>
-                    <p className="text-lg text-white-600 mt-3">
-                        Whether you’re looking to build a new website, improve your existing platform, or bring a unique project to
-                        life, I’m here to help.
+                <div className="relative contact-container min-w-72  bg-black bg-opacity-70 rounded-lg my-16 p-10 md:p-16 shadow-2xl z-10">
+                    <h3 className="head-text break-words">Let's talk</h3>
+                    <p className="text-lg text-white-600 mt-3 break-words overflow-wrap break-word">
+                        Ready to start your next project or elevate your digital presence? Whether you need a brand-new website, want to enhance your current platform, or have a unique idea in mind, I’m excited to collaborate and help bring your vision to life. Let’s connect and make something great together!
                     </p>
 
                     <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col space-y-7">
@@ -124,10 +137,18 @@ const Contact = () => {
                             />
                         </label>
 
-                        <button className="field-btn" type="submit" disabled={loading}>
-                            {loading ? 'Sending...' : 'Send Message'}
-
-                            <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
+                        <button className="field-btn flex items-center justify-center gap-2 hover:scale-110 hover:text-red-400" type="submit" disabled={loading}>
+                            {loading ? (
+                                <>
+                                    <span className="loader border-2 border-t-2 border-white rounded-full w-4 h-4 animate-spin"></span>
+                                    Sending...
+                                </>
+                            ) : (
+                                <>
+                                    Send Message
+                                    <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
+                                </>
+                            )}
                         </button>
                     </form>
                 </div>
