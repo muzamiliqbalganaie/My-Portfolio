@@ -287,6 +287,13 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
         : isTablet
           ? [-11, -7, -10]
           : [-13, -13, -10],
+    cvPosition: isSmall
+      ? [-5, -10, -10]
+      : isMobile
+        ? [-9, -10, -10]
+        : isTablet
+          ? [-15, -11, -10]
+          : [-12, 0, 0],
   };
 };
 
