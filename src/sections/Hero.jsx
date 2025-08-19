@@ -11,6 +11,7 @@ import Cube from '../components/Cube';
 import Rings from '../components/Ring';
 import HeroCamera from '../components/HeroCamera';
 import Button from '../components/Button';
+import CvMesh from '../components/CvMesh';
 
 const Hero = () => {
     const isSmall = useMediaQuery({ maxWidth: 440 });
@@ -22,7 +23,7 @@ const Hero = () => {
         <section className='min-h-screen w-full flex flex-col relative'>
             <div className='w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3'>
                 <p className='sm:text-3xl text-2xl font-medium text-white text-center font-generalsans '> Hi, I Am <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff0000] to-[#0000ff]">Muzamil Iqbal Ganaie
-                </span>   <span className="waving-hand">🖐🏼</span> </p>
+                </span>   <span className="waving-hand">👋🏼</span> </p>
                 <p className='hero_tag text-gray_gradient'>Buiding Products and Brands</p>
             </div>
 
@@ -46,6 +47,7 @@ const Hero = () => {
                             <ReactLogo position={sizes.reactLogoPosition} />
                             <Cube position={sizes.cubePosition} />
                             <Rings position={sizes.ringPosition} />
+                            <CvMesh position={sizes.cvPosition} />
                         </group>
                         <ambientLight intensity={1} />
                         <directionalLight position={[10, 10, 10]} intensity={0.5} />
