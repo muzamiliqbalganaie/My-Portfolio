@@ -5,9 +5,9 @@ const Footer = () => {
     const [sliderIndex, setSliderIndex] = React.useState(0);
     const socialLinks = [
         { href: "https://github.com/muzamiliqbalganaie", icon: "/assets/github.svg", title: "GitHub", className: "transition-transform hover:scale-110 hover:bg-purple-600 p-2 rounded-full" },
-        { href: "https://x.com/muzamiliqbalganaie", icon: "/assets/x.svg", title: "X (Twitter)", className: "transition-transform hover:scale-110 hover:bg-black p-2 rounded-full" },
-        { href: "https://instagram.com/muzaraj", icon: "/assets/instagram.svg", title: "Instagram", className: "transition-transform hover:scale-110 hover:bg-pink-500 p-2 rounded-full" },
-        { href: "https://www.linkedin.com/in/muzamil-iqbal-ganaie-017223268/", icon: "/assets/linkedin.svg", title: "LinkedIn", className: "transition-transform hover:scale-110 hover:bg-blue-700 p-2 rounded-full" },
+        // { href: "https://x.com/muzamiliqbalganaie", icon: "/assets/x.svg", title: "X (Twitter)", className: "transition-transform hover:scale-110 hover:bg-black p-2 rounded-full" },
+        // { href: "https://instagram.com/muzaraj", icon: "/assets/instagram.svg", title: "Instagram", className: "transition-transform hover:scale-110 hover:bg-pink-500 p-2 rounded-full" },
+        // { href: "https://www.linkedin.com/in/muzamil-iqbal-ganaie-017223268/", icon: "/assets/linkedin.svg", title: "LinkedIn", className: "transition-transform hover:scale-110 hover:bg-blue-700 p-2 rounded-full" },
         { href: "https://discord.com/users/1147560922680938597", icon: "/assets/discord.svg", title: "Discord", className: "transition-transform hover:scale-110 hover:bg-indigo-600 p-2 rounded-full" },
         { href: "https://stackoverflow.com/users/21841228", icon: "/assets/stackoverflow.svg", title: "Stack Overflow", className: "transition-transform hover:scale-110 hover:bg-yellow-500 p-2 rounded-full" },
         { href: "https://dev.to/mig", icon: "/assets/devto.svg", title: "Dev.to", className: "transition-transform hover:scale-110 hover:bg-gray-900 p-2 rounded-full" },
