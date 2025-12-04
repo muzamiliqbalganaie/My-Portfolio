@@ -33,7 +33,7 @@ const About = () => {
                                         'id': '5', 'src':
                                             '/assets/me4.jpg'
                                     },
-                                    { 'id': '6', 'src': '/assets/me5.jpg' },
+
 
                                 ]}
 
