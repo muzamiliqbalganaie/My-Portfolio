@@ -339,3 +339,94 @@ export const workExperiences = [
     animation: "clapping",
   },
 ];
+
+
+// Knowledge Map - Skills, Projects & Tools
+export const knowledgeMap = {
+  nodes: [
+    // Skills
+    { id: 'React.js', group: 'Skill', title: 'Frontend framework for building interactive UIs' },
+    { id: 'Next.js', group: 'Skill', title: 'Full-stack React framework with SSR & static generation' },
+    { id: 'TypeScript', group: 'Skill', title: 'Type-safe JavaScript for scalable applications' },
+    { id: 'TailwindCSS', group: 'Skill', title: 'Utility-first CSS framework for responsive design' },
+    { id: 'Node.js', group: 'Skill', title: 'JavaScript runtime for backend development' },
+    { id: 'Express.js', group: 'Skill', title: 'Fast, unopinionated web framework for Node.js' },
+    { id: 'MongoDB', group: 'Skill', title: 'NoSQL database for flexible data storage' },
+    { id: 'Framer Motion', group: 'Skill', title: 'Animation library for React components' },
+    { id: 'Three.js', group: 'Skill', title: '3D graphics library for web applications' },
+    { id: 'Redux', group: 'Skill', title: 'State management for complex applications' },
+    { id: 'RESTful APIs', group: 'Skill', title: 'API design & implementation best practices' },
+    { id: 'SQL', group: 'Skill', title: 'Database querying & management' },
+    { id: 'HTML/CSS/JavaScript', group: 'Skill', title: 'Core web development fundamentals' },
+    { id: 'Framer Motion', group: 'Skill', title: 'Advanced animations & interactions' },
+    { id: 'Stripe', group: 'Tool', title: 'Payment processing & e-commerce integration' },
+    { id: 'Firebase', group: 'Tool', title: 'Backend-as-a-service for authentication & database' },
+
+    // Projects
+    { id: 'Next.js Dashboard', group: 'Project', title: 'Full-stack dashboard with Next.js 14, TypeScript, TailwindCSS' },
+    { id: 'React CRUD App', group: 'Project', title: 'CRUD operations showcase with React & TypeScript' },
+    { id: 'E-commerce App', group: 'Project', title: 'Full-featured e-commerce with React, Stripe & Firebase' },
+    { id: 'Real-Time Chat App', group: 'Project', title: 'One-to-one messaging with React, Express & SQL' },
+    { id: 'OLX Marketplace', group: 'Project', title: 'Marketplace UI with React, TailwindCSS & Redux' },
+    { id: 'Subscription Tracker', group: 'Project', title: 'Backend system for subscription management' },
+
+    // Tools
+    { id: 'Postgres', group: 'Tool', title: 'Relational database for structured data' },
+    { id: 'Material UI', group: 'Tool', title: 'React component library for professional UIs' },
+  ],
+  links: [
+    // Next.js Dashboard connections
+    { source: 'React.js', target: 'Next.js Dashboard' },
+    { source: 'Next.js', target: 'Next.js Dashboard' },
+    { source: 'TypeScript', target: 'Next.js Dashboard' },
+    { source: 'TailwindCSS', target: 'Next.js Dashboard' },
+    { source: 'Framer Motion', target: 'Next.js Dashboard' },
+
+    // React CRUD App connections
+    { source: 'React.js', target: 'React CRUD App' },
+    { source: 'TypeScript', target: 'React CRUD App' },
+    { source: 'TailwindCSS', target: 'React CRUD App' },
+    { source: 'Framer Motion', target: 'React CRUD App' },
+
+    // E-commerce App connections
+    { source: 'React.js', target: 'E-commerce App' },
+    { source: 'TailwindCSS', target: 'E-commerce App' },
+    { source: 'Material UI', target: 'E-commerce App' },
+    { source: 'Stripe', target: 'E-commerce App' },
+    { source: 'Firebase', target: 'E-commerce App' },
+    { source: 'Node.js', target: 'E-commerce App' },
+    { source: 'Express.js', target: 'E-commerce App' },
+
+    // Real-Time Chat App connections
+    { source: 'React.js', target: 'Real-Time Chat App' },
+    { source: 'Express.js', target: 'Real-Time Chat App' },
+    { source: 'SQL', target: 'Real-Time Chat App' },
+    { source: 'TailwindCSS', target: 'Real-Time Chat App' },
+    { source: 'Node.js', target: 'Real-Time Chat App' },
+
+    // OLX Marketplace connections
+    { source: 'React.js', target: 'OLX Marketplace' },
+    { source: 'TailwindCSS', target: 'OLX Marketplace' },
+    { source: 'Redux', target: 'OLX Marketplace' },
+    { source: 'TypeScript', target: 'OLX Marketplace' },
+
+    // Subscription Tracker connections
+    { source: 'Node.js', target: 'Subscription Tracker' },
+    { source: 'Express.js', target: 'Subscription Tracker' },
+    { source: 'MongoDB', target: 'Subscription Tracker' },
+    { source: 'RESTful APIs', target: 'Subscription Tracker' },
+
+    // Skill interconnections
+    { source: 'React.js', target: 'TypeScript' },
+    { source: 'React.js', target: 'TailwindCSS' },
+    { source: 'Node.js', target: 'Express.js' },
+    { source: 'Express.js', target: 'MongoDB' },
+    { source: 'Express.js', target: 'SQL' },
+    { source: 'RESTful APIs', target: 'Node.js' },
+    { source: 'Redux', target: 'React.js' },
+    { source: 'Framer Motion', target: 'React.js' },
+    { source: 'Three.js', target: 'React.js' },
+    { source: 'Firebase', target: 'React.js' },
+    { source: 'Stripe', target: 'Express.js' },
+  ]
+}
