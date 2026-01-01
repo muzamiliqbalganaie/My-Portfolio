@@ -14,12 +14,12 @@ const Footer = () => {
         //  { href: "https://hashnode.com/@muzamiliqbalganaie", icon: "/assets/hashnode.svg", title: "Hashnode", className: "transition-transform hover:scale-110 hover:bg-blue-500 p-2 rounded-full" },
         // { href: "https://polywork.com/muzamiliqbalganaie", icon: "/assets/polywork.svg", title: "Polywork", className: "transition-transform hover:scale-110 hover:bg-purple-700 p-2 rounded-full" },
         //{ href: "https://gitlab.com/muzamiliqbalganaie", icon: "/assets/gitlab.svg", title: "GitLab", className: "transition-transform hover:scale-110 hover:bg-orange-500 p-2 rounded-full" },
-        //{ href: "https://medium.com/@muzamiliqbalganaie", icon: "/assets/medium.svg", title: "Medium", className: "transition-transform hover:scale-110 hover:bg-green-600 p-2 rounded-full" },
-        // { href: "https://producthunt.com/@muzamiliqbalganaie", icon: "/assets/producthunt.svg", title: "Product Hunt", className: "transition-transform hover:scale-110 hover:bg-orange-600 p-2 rounded-full" },
-        // { href: "https://codepen.io/muzamiliqbalganaie", icon: "/assets/codepen.svg", title: "CodePen", className: "transition-transform hover:scale-110 hover:bg-black p-2 rounded-full" },
-        // { href: "https://muzamil.tech", icon: "/assets/tech.svg", title: "Personal Tech Site", className: "transition-transform hover:scale-110 hover:bg-green-500 p-2 rounded-full" },
-        // { href: "https://www.hackthebox.com/", icon: "/assets/HTB.svg", title: "Hack The Box", className: "transition-transform hover:scale-110 hover:bg-lime-500 p-2 rounded-full" },
-        // { href: "https://tryhackme.com/", icon: "/assets/THM.svg", title: "TryHackMe", className: "transition-transform hover:scale-110 hover:bg-pink-600 p-2 rounded-full" }
+        { href: "https://medium.com/@muzamiliqbalganaie", icon: "/assets/medium.svg", title: "Medium", className: "transition-transform hover:scale-110 hover:bg-green-600 p-2 rounded-full" },
+        { href: "https://producthunt.com/@muzamiliqbalganaie", icon: "/assets/producthunt.svg", title: "Product Hunt", className: "transition-transform hover:scale-110 hover:bg-orange-600 p-2 rounded-full" },
+        { href: "https://codepen.io/muzamiliqbalganaie", icon: "/assets/codepen.svg", title: "CodePen", className: "transition-transform hover:scale-110 hover:bg-black p-2 rounded-full" },
+        { href: "https://muzamil.tech", icon: "/assets/tech.svg", title: "Personal Tech Site", className: "transition-transform hover:scale-110 hover:bg-green-500 p-2 rounded-full" },
+        { href: "https://www.hackthebox.com/", icon: "/assets/HTB.svg", title: "Hack The Box", className: "transition-transform hover:scale-110 hover:bg-lime-500 p-2 rounded-full" },
+        { href: "https://tryhackme.com/", icon: "/assets/THM.svg", title: "TryHackMe", className: "transition-transform hover:scale-110 hover:bg-pink-600 p-2 rounded-full" }
     ];
     return (
         <section className="c-space my-20">
@@ -27,7 +27,7 @@ const Footer = () => {
                 <div className="flex flex-col items-start md:items-center gap-2">
                     <div className="flex items-center gap-3">
                         <img src="/assets/hacker.svg" alt="Muzamil Iqbal" className="w-10 h-10 rounded-full border-2 border-purple-500 shadow-lg" />
-                        <span className="font-extrabold text-xl text-white tracking-wide">Muzamil Iqbal</span>
+                        <span className="font-extrabold text- text-white tracking-wide">Muzamil Iqbal</span>
                     </div>
                     <span className="text-[12px] text-purple-300 bg-white bg-opacity-10 px-3 py-1 rounded-full shadow-sm mt-1">Curious •  Designer & Developer</span>
                 </div>

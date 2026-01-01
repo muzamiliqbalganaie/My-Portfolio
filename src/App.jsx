@@ -7,11 +7,11 @@ import Clients from './sections/Clients'
 import Contact from './sections/Contact'
 import Footer from './sections/Footer'
 import WorkExperience from './sections/Experience'
-
+import ErDiagaram from './sections/ErDiagaram'
 
 const App = () => {
   return (
-    <main className='max-w-7xl mx-auto'>
+    <main className='max-w-full mx-auto'>
       <Navbar />
       <Hero />
       <About />
@@ -19,6 +19,7 @@ const App = () => {
       <Clients />
       <WorkExperience />
       <Contact />
+      <ErDiagaram />
       <Footer />
     </main>
   )
