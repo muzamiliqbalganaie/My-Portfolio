@@ -68,7 +68,7 @@ const KnowledgeMap = () => {
     }
 
     return (
-        <section className="px-16 relative">
+        <section className="px-16 relative" id="kmap">
             <h2 className='text-white text-center text-2xl font-bold mb-6'>Explore My Knowledge Map</h2>
 
             {/* Controls */}
@@ -135,7 +135,7 @@ const KnowledgeMap = () => {
             <div className="mt-4 text-center text-gray-400 ">
                 <small>💡 Tip: Drag nodes, pinch-to-zoom on mobile, and click nodes to focus.</small>
             </div>
-        </section>
+        </section >
     )
 }
 
