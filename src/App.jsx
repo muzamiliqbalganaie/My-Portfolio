@@ -8,7 +8,7 @@ import Contact from './sections/Contact'
 import Footer from './sections/Footer'
 import WorkExperience from './sections/Experience'
 import ErDiagaram from './sections/ErDiagaram'
-
+import { Analytics } from "@vercel/analytics/next"
 const App = () => {
   return (
     <main className='max-w-full mx-auto'>
