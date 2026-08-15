@@ -1,4 +1,6 @@
 import React from 'react'
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import Navbar from './sections/Navbar'
 import Hero from './sections/Hero'
 import About from './sections/About'
@@ -8,7 +10,8 @@ import Contact from './sections/Contact'
 import Footer from './sections/Footer'
 import WorkExperience from './sections/Experience'
 import ErDiagaram from './sections/ErDiagaram'
-import { Analytics } from "@vercel/analytics/next"
+
+
 const App = () => {
   return (
     <main className='max-w-full mx-auto'>
