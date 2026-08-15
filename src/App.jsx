@@ -1,6 +1,6 @@
 import React from 'react'
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import Navbar from './sections/Navbar'
 import Hero from './sections/Hero'
 import About from './sections/About'
