@@ -1,10 +1,11 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
 const DevPipeline = (props) => {
     const containerRef = useRef()
     const pipelineRef = useRef()
+    const [error, setError] = useState(null)
 
     // Pipeline stages with colors
     const stages = [
@@ -16,44 +17,72 @@ const DevPipeline = (props) => {
     ]
 
     useGSAP(() => {
-        if (!pipelineRef.current) return
+        try {
+            if (!pipelineRef.current) return
 
-        const items = pipelineRef.current.querySelectorAll('.pipeline-item')
-        
-        // Stagger animation
-        gsap.from(items, {
-            opacity: 0,
-            y: 20,
-            duration: 0.6,
-            stagger: 0.15,
-            ease: 'power3.out',
-            repeat: -1,
-            repeatDelay: 3
-        })
+            const items = pipelineRef.current.querySelectorAll('.pipeline-item')
+            
+            // Stagger animation
+            if (items.length > 0) {
+                gsap.from(items, {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.6,
+                    stagger: 0.15,
+                    ease: 'power3.out',
+                    repeat: -1,
+                    repeatDelay: 3
+                })
+            }
 
-        // Pulse animation on dots
-        const dots = pipelineRef.current.querySelectorAll('.pipeline-dot')
-        gsap.to(dots, {
-            scale: 1.2,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: 'power2.inOut',
-            repeat: -1,
-            yoyo: true,
-            repeatDelay: 2.5
-        })
+            // Pulse animation on dots
+            const dots = pipelineRef.current.querySelectorAll('.pipeline-dot')
+            if (dots.length > 0) {
+                gsap.to(dots, {
+                    scale: 1.2,
+                    duration: 0.8,
+                    stagger: 0.1,
+                    ease: 'power2.inOut',
+                    repeat: -1,
+                    yoyo: true,
+                    repeatDelay: 2.5
+                })
+            }
 
-        // Flow effect - animated line
-        const line = pipelineRef.current.querySelector('.pipeline-line')
-        if (line) {
-            gsap.to(line, {
-                backgroundPosition: '200% 0%',
-                duration: 3,
-                ease: 'linear',
-                repeat: -1
-            })
+            // Flow effect - animated line using scaleX instead
+            const line = pipelineRef.current.querySelector('.pipeline-line')
+            if (line) {
+                gsap.to(line, {
+                    scaleX: 1.1,
+                    duration: 2,
+                    ease: 'sine.inOut',
+                    repeat: -1,
+                    yoyo: true
+                })
+            }
+        } catch (err) {
+            console.error('GSAP Animation Error:', err.message)
+            setError(`Animation Error: ${err.message}`)
         }
     }, [])
+
+    if (error) {
+        return (
+            <div className="w-full h-full flex items-center justify-center p-4 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+                <div className="text-center">
+                    <div className="text-red-500 text-4xl mb-4">⚠️</div>
+                    <p className="text-red-400 font-bold mb-2">Animation Error</p>
+                    <p className="text-gray-400 text-sm">{error}</p>
+                    <button
+                        onClick={() => setError(null)}
+                        className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition"
+                    >
+                        Retry
+                    </button>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div
@@ -69,11 +98,11 @@ const DevPipeline = (props) => {
                 <div className="relative">
                     {/* Animated flowing line */}
                     <div
-                        className="pipeline-line absolute left-0 right-0 top-[50%] h-1 rounded-full z-0"
+                        className="pipeline-line absolute left-0 right-0 top-[50%] h-1 rounded-full z-0 origin-center"
                         style={{
                             background: `linear-gradient(90deg, transparent 0%, #6366f1 25%, #8b5cf6 50%, #3b82f6 75%, transparent 100%)`,
-                            backgroundSize: '200% 100%',
-                            boxShadow: '0 0 20px rgba(99, 102, 241, 0.5)'
+                            boxShadow: '0 0 20px rgba(99, 102, 241, 0.5)',
+                            willChange: 'transform'
                         }}
                     ></div>
 
@@ -90,7 +119,8 @@ const DevPipeline = (props) => {
                                     style={{
                                         background: `linear-gradient(135deg, ${stage.color}, ${stage.color}dd)`,
                                         boxShadow: `0 0 20px ${stage.color}99, inset 0 0 10px ${stage.color}`,
-                                        border: `2px solid ${stage.color}`
+                                        border: `2px solid ${stage.color}`,
+                                        willChange: 'transform'
                                     }}
                                 >
                                     {stage.icon}
