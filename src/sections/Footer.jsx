@@ -23,37 +23,41 @@ const Footer = () => {
     ];
     return (
         <section className="c-space my-20">
-            <footer className="max-w-full bg-black-900 py-8 px-6 mb-3 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl border-t border-black-300 rounded-[16px] relative bg-black-200  " style={{ backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' }}>
-                <div className="flex flex-col items-start md:items-center gap-2">
-                    <div className="flex items-center gap-3">
-                        <img src="/assets/hacker.svg" alt="Muzamil Iqbal" className="w-10 h-10 rounded-full border-2 border-purple-500 shadow-lg" />
-                        <span className="font-extrabold text- text-white tracking-wide">Muzamil Iqbal</span>
+            <footer className="max-w-full bg-black-900 py-6 sm:py-8 px-4 sm:px-6 mb-3 flex flex-col gap-6 sm:gap-8 shadow-2xl border-t border-black-300 rounded-[16px] relative bg-bottom bg-no-repeat bg-cover">
+                {/* Profile Section */}
+                <div className="flex flex-col items-center sm:items-start gap-2 text-center sm:text-left">
+                    <div className="flex items-center gap-3 justify-center sm:justify-start">
+                        <img src="/assets/hacker.svg" alt="Muzamil Iqbal" className="w-8 sm:w-10 h-8 sm:h-10 rounded-full border-2 border-purple-500 shadow-lg" />
+                        <span className="font-extrabold text-sm sm:text-base text-white tracking-wide">Muzamil Iqbal</span>
                     </div>
-                    <span className="text-[12px] text-purple-300 bg-white bg-opacity-10 px-3 py-1 rounded-full shadow-sm mt-1">Curious •  Designer & Developer</span>
+                    <span className="text-[11px] sm:text-[12px] text-purple-300 bg-white bg-opacity-10 px-3 py-1 rounded-full shadow-sm mt-1">Curious •  Designer & Developer</span>
                 </div>
 
-                <div className="relative w-full max-w-xl mx-auto">
-                    <div className="overflow-hidden bg-white bg-opacity-5 rounded-xl pl-32 py-2 shadow-lg">
-                        <div id="footer-slider-track" className="flex gap-5 items-center transition-transform duration-500">
+                {/* Social Links Slider */}
+                <div className="relative w-full">
+                    <div className="overflow-hidden bg-white bg-opacity-5 rounded-xl py-2 sm:py-3 pl-12 sm:pl-32 shadow-lg">
+                        <div id="footer-slider-track" className="flex gap-3 sm:gap-5 items-center transition-transform duration-500">
                             {socialLinks.slice(sliderIndex, sliderIndex + 6).map((link,) => (
                                 <a key={link.title} href={link.href} target="_blank" rel="noopener noreferrer" className={link.className} title={link.title}>
-                                    <img src={link.icon} alt={link.title} className="min-w-7 min-h-7" />
+                                    <img src={link.icon} alt={link.title} className="min-w-6 min-h-6 sm:min-w-7 sm:min-h-7" />
                                 </a>
                             ))}
                         </div>
                     </div>
-                    <button type="button" onClick={() => setSliderIndex(Math.max(0, sliderIndex - 1))} className="absolute left-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 hover:bg-opacity-80 text-white rounded-full p-2 shadow-lg transition-all duration-300 z-10 hover:scale-110" style={{ display: sliderIndex === 0 ? 'none' : 'block' }}>
-                        <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+                    {/* Left Arrow */}
+                    <button type="button" onClick={() => setSliderIndex(Math.max(0, sliderIndex - 1))} className="absolute left-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 hover:bg-opacity-80 text-white p-1.5 sm:p-2 rounded-full transition-all z-10">
+                        <svg width="16" height="16" className="sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
                     </button>
-                    <button type="button" onClick={() => setSliderIndex(Math.min(socialLinks.length - 6, sliderIndex + 1))} className="absolute right-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 hover:bg-opacity-80 text-white rounded-full p-2 shadow-lg transition-all duration-300 z-10 hover:scale-110" style={{ display: sliderIndex >= socialLinks.length - 6 ? 'none' : 'block' }}>
-                        <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+                    {/* Right Arrow */}
+                    <button type="button" onClick={() => setSliderIndex(Math.min(socialLinks.length - 6, sliderIndex + 1))} className="absolute right-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 hover:bg-opacity-80 text-white p-1.5 sm:p-2 rounded-full transition-all z-10">
+                        <svg width="16" height="16" className="sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
                     </button>
                 </div>
 
-
-                <div className="flex flex-col items-end gap-1">
-                    <p className="text-white text-sm font-medium footer-3dtech ">© 2021-2025 MIG</p>
-                    <span className="text-[12px] text-gray-400 crafted-footer-text">
+                {/* Copyright Section */}
+                <div className="flex flex-col items-center sm:items-end gap-1 text-center sm:text-right">
+                    <p className="text-white text-xs sm:text-sm font-medium footer-3dtech">© 2021-2025 MIG</p>
+                    <span className="text-[10px] sm:text-[12px] text-gray-400 crafted-footer-text leading-relaxed">
                         Crafted with <span className="animated-heart">❤️</span>
                         <a href="https://react.dev/" target="_blank" rel="noopener noreferrer" className="footer-link-gradient">React</a>,
                         <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" className="footer-link-gradient">TailwindCSS</a>
