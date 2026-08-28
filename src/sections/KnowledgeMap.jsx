@@ -127,8 +127,14 @@ const KnowledgeMap = () => {
              ">
                 <ForceGraph data={knowledgeMap} filterGroups={[...filters]} highlightNode={highlight} onNodeClick={onNodeClick} />
                 {studyMode && (
-                    <StudyPanel activeStep={step} steps={steps} onNext={() => setStep(s => Math.min(steps.length - 1, s + 1))} onPrev={() => setStep(s => Math.max(0, s - 1))} onClose={() => setStudyMode(false)} />
-                )}
+    <StudyPanel 
+        activeStep={step} 
+        steps={steps} 
+        onNext={() => setStep(s => Math.min(steps.length - 1, s + 1))} 
+        onPrev={() => setStep(s => Math.max(0, s - 1))} 
+        onClose={() => setStudyMode(false)}
+    />
+)}
             </div>
 
             {/* Tip */}
