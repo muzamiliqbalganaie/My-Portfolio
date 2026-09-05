@@ -33,14 +33,14 @@ const Hero = () => {
     };
 
     return (
-        <section className='min-h-screen max-w-full flex flex-col relative'>
+        <section className='min-h-screen max-w-full flex flex-col relative' id='hero'>
             <div className='w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-1'>
                 <p className='sm:text-3xl text-2xl font-medium text-center font-generalsans text-transparent bg-clip-text bg-gradient-to-r from-[#545353] to-[#f9f9ff]'> Hi, I Am <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#545353] to-[#f9f9ff]">Muzamil Iqbal Ganaie
                 </span>   <span className="waving-hand">👋🏼</span> </p>
                 <p className='hero_tag text-transparent bg-clip-text bg-gradient-to-r from-[#545353] to-[#f9f9ff]'>Buiding Products and Brands</p>
             </div>
 
-            <div className='min-w-full h-full absolute inset-3'>
+            <div className='h-100vh absolute inset-3'>
                 {/*<Leva/>*/}
                 <Canvas className='w-full h-full '>
                     <Suspense fallback={<CanvasLoader />}>
