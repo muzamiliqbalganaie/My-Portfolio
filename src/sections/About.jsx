@@ -18,8 +18,8 @@ const About = () => {
 
     return (
         <section className="c-space my-20" id='about'>
-            <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-1 gap-5 h-full">
-                <div className="col-span-1 xl:row-span-3">
+            <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-1 gap-5  h-full">
+                <div className="min-w-0 col-span-1  xl:row-span-3 ">
                     <div className="grid-container">
                         <Canvas className="max-w-full h-[275px]">
                             <ambientLight intensity={0.5} />
@@ -49,7 +49,7 @@ const About = () => {
                     </div>
                 </div>
 
-                <div className='col-span-1 xl:row-span-3'>
+                <div className='min-w-0 col-span-1  xl:row-span-3 '>
                     <div className='grid-container'>
                         <img src='/assets/grid2-premium.svg ' alt='grid-2' className="w-full sm:h-[275px] h-fit object-contain" />
 
@@ -60,12 +60,12 @@ const About = () => {
                     </div>
                 </div>
 
-                <div className="col-span-1 xl:row-span-4">
+                <div className="min-w-0 col-span-1  xl:row-span-4 ">
                     <div className='grid-container'>
                         <div className='rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center'>
                             <Globe
-                                height={326}
-                                width={326}
+                                height={280}
+                                width={280}
                                 backgroundColor='rgba(0, 0, 0, 0)'
                                 backgroundImageOpacity={0.5}
                                 showAtmosphere
@@ -84,7 +84,7 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-                <div className="xl:col-span-2 xl:row-span-3">
+                <div className="xl:col-span-2  xl:row-span-3 ">
                     <div className="grid-container">
                         <img src="assets/grid3.png" alt="grid-3" className="w-full sm:h-[266px] h-fit object-contain" />
 
@@ -98,7 +98,7 @@ const About = () => {
                     </div>
                 </div>
 
-                <div className="xl:col-span-1 xl:row-span-2">
+                <div className="xl:min-w-0 col-span-1  xl:row-span-2 ">
                     <div className="grid-container">
                         <img
                             src="assets/grid4.png"
@@ -108,9 +108,16 @@ const About = () => {
 
                         <div className="space-y-2">
                             <p className="grid-subtext text-center">Contact me</p>
-                            <div className="copy-container" onClick={handleCopy}>
-                                <img src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'} width={24} height={14} alt="copy" />
-                                <p className="lg:text-2xl md:text-xl  text-gray_gradient text-white ">muzamiliqbalganaie@gmail.com</p>
+                            <div className="copy-container min-w-0 flex-wrap" onClick={handleCopy}>
+                                <img
+                                    src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'}
+                                    width={24}
+                                    height={14}
+                                    alt="copy"
+                                />
+                                <p className="min-w-0 max-w-full break-all text-center text-gray_gradient text-white">
+                                    muzamiliqbalganaie@gmail.com
+                                </p>
                             </div>
                         </div>
                     </div>

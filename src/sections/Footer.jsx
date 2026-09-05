@@ -22,8 +22,8 @@ const Footer = () => {
         { href: "https://tryhackme.com/", icon: "/assets/THM.svg", title: "TryHackMe", className: "transition-transform hover:scale-110 hover:bg-pink-600 p-2 rounded-full" }
     ];
     return (
-        <section className="c-space my-20">
-            <footer className="max-w-full bg-black-900 py-8 px-6 mb-3 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl border-t border-black-300 rounded-[16px] relative bg-black-200  " style={{ backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' }}>
+        <section className="c-space my-20 " id='social-links'>
+            <footer className="w-full flex flex-col lg:flex-row items-center justify-between gap-8 px-4 sm:px-6 py-8">
                 <div className="flex flex-col items-start md:items-center gap-2">
                     <div className="flex items-center gap-3">
                         <img src="/assets/hacker.svg" alt="Muzamil Iqbal" className="w-10 h-10 rounded-full border-2 border-purple-500 shadow-lg" />
@@ -32,12 +32,12 @@ const Footer = () => {
                     <span className="text-[12px] text-purple-300 bg-white bg-opacity-10 px-3 py-1 rounded-full shadow-sm mt-1">Curious •  Designer & Developer</span>
                 </div>
 
-                <div className="relative w-full max-w-xl mx-auto">
-                    <div className="overflow-hidden bg-white bg-opacity-5 rounded-xl pl-32 py-2 shadow-lg">
-                        <div id="footer-slider-track" className="flex gap-5 items-center transition-transform duration-500">
+                <div className="relative w-full min-w-0 flex justify-center lg:justify-end flex-col items-center lg:items-center gap-2">
+                    <div className="overflow-hidden rounded-xl px-12 sm:px-20 py-2 shadow-lg">
+                        <div className="flex min-w-0 gap-3 sm:gap-5 items-center">
                             {socialLinks.slice(sliderIndex, sliderIndex + 6).map((link,) => (
                                 <a key={link.title} href={link.href} target="_blank" rel="noopener noreferrer" className={link.className} title={link.title}>
-                                    <img src={link.icon} alt={link.title} className="min-w-7 min-h-7" />
+                                    <img src={link.icon} alt={link.title} className="w-7 h-7 object-contain" />
                                 </a>
                             ))}
                         </div>
@@ -52,7 +52,7 @@ const Footer = () => {
 
 
                 <div className="flex flex-col items-end gap-1">
-                    <p className="text-white text-sm font-medium footer-3dtech ">© 2021-2025 MIG</p>
+                    <p className="text-white text-sm font-medium footer-3dtech ">© 2026 MIG</p>
                     <span className="text-[12px] text-gray-400 crafted-footer-text">
                         Crafted with <span className="animated-heart">❤️</span>
                         <a href="https://react.dev/" target="_blank" rel="noopener noreferrer" className="footer-link-gradient">React</a>,
