@@ -29,7 +29,7 @@ const Footer = () => {
                         <img src="/assets/hacker.svg" alt="Muzamil Iqbal" className="w-10 h-10 rounded-full border-2 border-purple-500 shadow-lg" />
                         <span className="font-extrabold text- text-white tracking-wide">Muzamil Iqbal</span>
                     </div>
-                    <span className="text-[12px] text-purple-300 bg-white bg-opacity-10 px-3 py-1 rounded-full shadow-sm mt-1">Curious •  Designer & Developer</span>
+                    <span className="text-[11px] sm:text-[12px] text-purple-300 bg-white bg-opacity-10 px-3 py-1 rounded-full shadow-sm mt-1">Curious •  Designer & Developer</span>
                 </div>
 
                 <div className="relative w-full min-w-0 flex justify-center lg:justify-end flex-col items-center lg:items-center gap-2">
@@ -42,11 +42,13 @@ const Footer = () => {
                             ))}
                         </div>
                     </div>
-                    <button type="button" onClick={() => setSliderIndex(Math.max(0, sliderIndex - 1))} className="absolute left-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 hover:bg-opacity-80 text-white rounded-full p-2 shadow-lg transition-all duration-300 z-10 hover:scale-110" style={{ display: sliderIndex === 0 ? 'none' : 'block' }}>
-                        <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+                    {/* Left Arrow */}
+                    <button type="button" onClick={() => setSliderIndex(Math.max(0, sliderIndex - 1))} className="absolute left-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 hover:bg-opacity-80 text-white p-1.5 sm:p-2 rounded-full transition-all z-10">
+                        <svg width="16" height="16" className="sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
                     </button>
-                    <button type="button" onClick={() => setSliderIndex(Math.min(socialLinks.length - 6, sliderIndex + 1))} className="absolute right-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 hover:bg-opacity-80 text-white rounded-full p-2 shadow-lg transition-all duration-300 z-10 hover:scale-110" style={{ display: sliderIndex >= socialLinks.length - 6 ? 'none' : 'block' }}>
-                        <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+                    {/* Right Arrow */}
+                    <button type="button" onClick={() => setSliderIndex(Math.min(socialLinks.length - 6, sliderIndex + 1))} className="absolute right-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 hover:bg-opacity-80 text-white p-1.5 sm:p-2 rounded-full transition-all z-10">
+                        <svg width="16" height="16" className="sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
                     </button>
                 </div>
 
