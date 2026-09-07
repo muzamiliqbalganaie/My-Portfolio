@@ -24,6 +24,11 @@ export const navLinks = [
     name: "K-MAP",
     href: "#kmap",
   },
+  {
+    id: 6,
+    name: "Social Links",
+    href: "#social-links",
+  },
 ];
 
 export const clientReviews = [

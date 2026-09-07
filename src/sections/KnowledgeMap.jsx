@@ -8,7 +8,7 @@ const StudyPanel = ({ activeStep, steps, onNext, onPrev, onClose }) => {
     if (!steps || steps.length === 0) return null
     const step = steps[activeStep]
     return (
-        <div className="absolute right-3 top-3 w-80 z-40 bg-gray-900 p-4 rounded-lg shadow-2xl border border-gray-700">
+        <div className="absolute left-3 right-3 top-3 z-40 w-auto max-w-80 bg-gray-900 p-3 sm:left-auto sm:w-80 sm:p-4 rounded-lg shadow-2xl border border-gray-700">
             <h3 className="text-white font-bold text-lg m-0">{step.title}</h3>
             <p className="text-gray-300 mt-3 text-sm">{step.text}</p>
             <div className="flex justify-between items-center mt-4 gap-2">
@@ -68,16 +68,15 @@ const KnowledgeMap = () => {
     }
 
     return (
-        <section className="px-16 relative" id="kmap">
+        <section className="px-4 sm:px-8 md:px-16 relative" id="kmap">
             <h2 className='text-white text-center text-2xl font-bold mb-6'>Explore My Knowledge Map</h2>
 
             {/* Controls */}
-            <div className="mb-6 flex flex-col md:flex-row gap-4 items-center justify-between flex-wrap bg-black
-             p-4 rounded-lg border border-gray-500">
+            <div className="mb-6 flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between flex-wrap bg-black p-3 sm:p-4 rounded-lg border border-gray-500">
                 {/* Filters */}
-                <div className="flex items-center gap-4">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                     <strong className="text-gray-300">Filters:</strong>
-                    <div className="flex gap-3">
+                    <div className="flex flex-wrap gap-x-3 gap-y-2">
                         {groups.map(g => (
                             <label key={g} className="flex items-center gap-2 cursor-pointer text-gray-300 hover:text-white transition">
                                 <input
@@ -93,7 +92,7 @@ const KnowledgeMap = () => {
                 </div>
 
                 {/* Study Mode */}
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                     <label className="flex items-center gap-2 cursor-pointer text-gray-300 hover:text-white transition">
                         <input
                             type="checkbox"
@@ -123,22 +122,21 @@ const KnowledgeMap = () => {
             </div>
 
             {/* Graph Container */}
-            <div className="rounded-lg overflow-hidden border border-gray-500 relative bg-white-700
-             ">
+            <div className="h-[420px] sm:h-[600px] rounded-lg overflow-hidden border border-gray-500 relative bg-white-700">
                 <ForceGraph data={knowledgeMap} filterGroups={[...filters]} highlightNode={highlight} onNodeClick={onNodeClick} />
                 {studyMode && (
-    <StudyPanel 
-        activeStep={step} 
-        steps={steps} 
-        onNext={() => setStep(s => Math.min(steps.length - 1, s + 1))} 
-        onPrev={() => setStep(s => Math.max(0, s - 1))} 
-        onClose={() => setStudyMode(false)}
-    />
-)}
+                    <StudyPanel
+                        activeStep={step}
+                        steps={steps}
+                        onNext={() => setStep(s => Math.min(steps.length - 1, s + 1))}
+                        onPrev={() => setStep(s => Math.max(0, s - 1))}
+                        onClose={() => setStudyMode(false)}
+                    />
+                )}
             </div>
 
             {/* Tip */}
-            <div className="mt-4 text-center text-gray-400 ">
+            <div className="mt-4 px-2 text-center text-gray-400">
                 <small>💡 Tip: Drag nodes, pinch-to-zoom on mobile, and click nodes to focus.</small>
             </div>
         </section >

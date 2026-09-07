@@ -181,7 +181,7 @@ const ForceGraph = ({ data, filterGroups = [], highlightNode = null, onNodeClick
     }, [data, filterGroups, width, height, highlightNode])
 
     return (
-        <div ref={ref} style={{ width: '100%', height: '600px', position: 'relative' }}></div>
+        <div ref={ref} style={{ width: '100%', height: '100%', position: 'relative' }}></div>
     )
 }
 
