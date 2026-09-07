@@ -1,64 +1,83 @@
-import emailjs from '@emailjs/browser';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import useAlert from '../hooks/useAlert.js';
 import Alert from '../components/Alert.jsx';
 
-const {
-    VITE_APP_EMAILJS_SERVICE_ID,
-    VITE_APP_EMAILJS_TEMPLATE_ID,
-    VITE_APP_EMAILJS_PUBLIC_KEY,
-} = import.meta.env;
+const { VITE_TURNSTILE_SITE_KEY } = import.meta.env;
 
 const Contact = () => {
     const formRef = useRef();
+    const turnstileRef = useRef();
+    const turnstileWidgetId = useRef();
 
     const { alert, showAlert, hideAlert } = useAlert();
     const [loading, setLoading] = useState(false);
+    const [turnstileToken, setTurnstileToken] = useState('');
 
     const [form, setForm] = useState({ name: '', email: '', message: '' });
 
-    // Whitelist: allow letters, numbers, basic punctuation for name/email, allow most printable for message
     const whitelistRegex = {
         name: /^[a-zA-Z .,'-]{0,60}$/,
         email: /^[a-zA-Z0-9@._-]{0,60}$/,
         message: /^[\x20-\x7E\n\r]{0,1000}$/
     };
 
-    // Encode HTML entities
-    const encodeHTML = (str) => str.replace(/[&<>'"/]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;', '/': '&#x2F;' }[c]));
-
     const handleChange = ({ target: { name, value } }) => {
         let filtered = value;
         if (whitelistRegex[name]) {
-            filtered = filtered.split('').filter(c => whitelistRegex[name].test(c)).join('');
+            filtered = value.match(whitelistRegex[name])?.[0] ?? '';
         }
-        setForm({ ...form, [name]: encodeHTML(filtered) });
+        setForm({ ...form, [name]: filtered });
     };
+
+    useEffect(() => {
+        if (!VITE_TURNSTILE_SITE_KEY) return undefined;
+
+        const renderWidget = () => {
+            if (!turnstileRef.current || !window.turnstile) return false;
+            turnstileWidgetId.current = window.turnstile.render(turnstileRef.current, {
+                sitekey: VITE_TURNSTILE_SITE_KEY,
+                callback: setTurnstileToken,
+                'expired-callback': () => setTurnstileToken(''),
+                'error-callback': () => setTurnstileToken(''),
+            });
+            return true;
+        };
+
+        if (renderWidget()) return undefined;
+        const intervalId = window.setInterval(() => {
+            if (renderWidget()) window.clearInterval(intervalId);
+        }, 100);
+
+        return () => {
+            window.clearInterval(intervalId);
+            if (
+                window.turnstile &&
+                turnstileWidgetId.current !== undefined
+            ) {
+                window.turnstile.remove(turnstileWidgetId.current);
+                turnstileWidgetId.current = undefined;
+            }
+        };
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!turnstileToken || loading) return;
         setLoading(true);
 
-        emailjs
-            .send(
-                VITE_APP_EMAILJS_SERVICE_ID,
-                VITE_APP_EMAILJS_TEMPLATE_ID,
-                {
-                    from_name: form.name,
-                    to_name: 'Muzmail Iqbal',
-                    from_email: form.email,
-                    to_email: 'muzamiliqbalganaie@gmail.com',
-                    message: form.message,
-                },
-                VITE_APP_EMAILJS_PUBLIC_KEY,
-            )
+        fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ...form, turnstileToken }),
+        })
             .then(
-                () => {
+                async (response) => {
+                    if (!response.ok) throw new Error((await response.json()).error || 'Unable to send message');
                     setLoading(false);
                     showAlert({
                         show: true,
-                        text: 'Thanks for your message 😃🫡',
+                        text: 'Thanks for your message 👌',
                         type: 'success',
                     });
 
@@ -69,6 +88,8 @@ const Contact = () => {
                             email: '',
                             message: '',
                         });
+                        setTurnstileToken('');
+                        if (window.turnstile && turnstileWidgetId.current !== undefined) window.turnstile.reset(turnstileWidgetId.current);
                     }, 3000);
                 },
                 (error) => {
@@ -80,6 +101,8 @@ const Contact = () => {
                         text: "I didn't receive your message 😢",
                         type: 'danger',
                     });
+                    setTurnstileToken('');
+                    if (window.turnstile && turnstileWidgetId.current !== undefined) window.turnstile.reset(turnstileWidgetId.current);
                 },
             );
     };
@@ -137,7 +160,11 @@ const Contact = () => {
                             />
                         </label>
 
-                        <button className="field-btn flex items-center justify-center gap-2 hover:scale-110 hover:text-red-400" type="submit" disabled={loading}>
+                        <input type="text" name="company" tabIndex="-1" autoComplete="off" aria-hidden="true" className="hidden" />
+
+                        <div ref={turnstileRef} aria-label="Security check" />
+
+                        <button className="field-btn flex items-center justify-center gap-2 hover:scale-110  hover:text-emerald-100" type="submit" disabled={loading || !turnstileToken}>
                             {loading ? (
                                 <>
                                     <span className="loader border-2 border-t-2 border-white rounded-full w-4 h-4 animate-spin"></span>

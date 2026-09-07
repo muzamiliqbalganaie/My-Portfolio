@@ -1,0 +1,540 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#020817"/>
+      <stop offset="1" stop-color="#07051f"/>
+    </linearGradient>
+
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".5" stop-color="#11c8ff"/>
+      <stop offset="1" stop-color="#b66cff"/>
+    </linearGradient>
+
+    <style>
+      .title {
+        font: 800 66px Arial, sans-serif;
+        letter-spacing: 2px;
+      }
+      .sub {
+        font: 600 22px Arial, sans-serif;
+        letter-spacing: 3px;
+        fill: #aeb8c9;
+      }
+      .head {
+        font: 800 28px Arial, sans-serif;
+        fill: #fff;
+      }
+      .name {
+        font: 700 21px Arial, sans-serif;
+        fill: #fff;
+      }
+      .desc {
+        font: 500 16px Arial, sans-serif;
+      }
+      .footer {
+        font: 600 19px Arial, sans-serif;
+        fill: #dbe3ef;
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1536" height="1024" fill="url(#bg)"/>
+
+  <!-- Header -->
+  <text x="768" y="112"
+        text-anchor="middle"
+        class="title"
+        fill="url(#title)">
+    TECH STACK
+  </text>
+
+  <line x1="145" y1="82" x2="440" y2="82"
+        stroke="#244c4b"/>
+
+  <line x1="1095" y1="82" x2="1390" y2="82"
+        stroke="#273056"/>
+
+  <text x="768" y="153"
+        text-anchor="middle"
+        class="sub">
+    MERN STACK • AI/ML (BEGINNER) • CYBER SECURITY
+  </text>
+
+  <!-- MERN STACK -->
+  <rect x="130" y="196"
+        width="1276"
+        height="205"
+        rx="20"
+        fill="#031116"
+        stroke="#11c96b"
+        stroke-width="2"/>
+
+  <rect x="625" y="176"
+        width="286"
+        height="46"
+        rx="12"
+        fill="#087b42"
+        stroke="#22e879"/>
+
+  <text x="768" y="207"
+        text-anchor="middle"
+        class="head">
+    MERN STACK
+  </text>
+
+  <!-- MongoDB -->
+  <text x="288" y="270"
+        text-anchor="middle"
+        font-size="70"
+        fill="#36b24a">
+    ◆
+  </text>
+
+  <text x="288" y="321"
+        text-anchor="middle"
+        class="name">
+    MongoDB
+  </text>
+
+  <text x="288" y="348"
+        text-anchor="middle"
+        class="desc"
+        fill="#45d96b">
+    Database
+  </text>
+
+  <!-- Express -->
+  <text x="600" y="285"
+        text-anchor="middle"
+        font-size="60"
+        fill="#eeeeee">
+    ex
+  </text>
+
+  <text x="600" y="321"
+        text-anchor="middle"
+        class="name">
+    Express.js
+  </text>
+
+  <text x="600" y="348"
+        text-anchor="middle"
+        class="desc"
+        fill="#45d96b">
+    Backend Framework
+  </text>
+
+  <!-- React -->
+  <text x="920" y="286"
+        text-anchor="middle"
+        font-size="66"
+        fill="#22d3ee">
+    ⚛
+  </text>
+
+  <text x="920" y="321"
+        text-anchor="middle"
+        class="name">
+    React
+  </text>
+
+  <text x="920" y="348"
+        text-anchor="middle"
+        class="desc"
+        fill="#45d96b">
+    Frontend Library
+  </text>
+
+  <!-- Node -->
+  <text x="1240" y="286"
+        text-anchor="middle"
+        font-size="62"
+        font-weight="bold"
+        fill="#78d64b">
+    JS
+  </text>
+
+  <text x="1240" y="321"
+        text-anchor="middle"
+        class="name">
+    Node.js
+  </text>
+
+  <text x="1240" y="348"
+        text-anchor="middle"
+        class="desc"
+        fill="#45d96b">
+    Runtime Environment
+  </text>
+
+
+  <!-- AI / ML -->
+  <rect x="130" y="445"
+        width="1276"
+        height="208"
+        rx="20"
+        fill="#03101d"
+        stroke="#149cff"
+        stroke-width="2"/>
+
+  <rect x="607" y="425"
+        width="322"
+        height="46"
+        rx="12"
+        fill="#0758a3"
+        stroke="#35b8ff"/>
+
+  <text x="768" y="456"
+        text-anchor="middle"
+        class="head">
+    AI / ML (BEGINNER)
+  </text>
+
+  <!-- Python -->
+  <text x="225" y="535"
+        text-anchor="middle"
+        font-size="54"
+        font-weight="bold"
+        fill="#ffd54a">
+    Py
+  </text>
+
+  <text x="225" y="591"
+        text-anchor="middle"
+        class="name">
+    Python
+  </text>
+
+  <text x="225" y="618"
+        text-anchor="middle"
+        class="desc"
+        fill="#1da9ff">
+    Programming
+  </text>
+
+  <!-- NumPy -->
+  <text x="455" y="535"
+        text-anchor="middle"
+        font-size="48"
+        fill="#61b7e8">
+    ◈
+  </text>
+
+  <text x="455" y="591"
+        text-anchor="middle"
+        class="name">
+    NumPy
+  </text>
+
+  <text x="455" y="618"
+        text-anchor="middle"
+        class="desc"
+        fill="#1da9ff">
+    Numerical Computing
+  </text>
+
+  <!-- Pandas -->
+  <text x="675" y="535"
+        text-anchor="middle"
+        font-size="48"
+        fill="#dce9f7">
+    ▮▯
+  </text>
+
+  <text x="675" y="591"
+        text-anchor="middle"
+        class="name">
+    Pandas
+  </text>
+
+  <text x="675" y="618"
+        text-anchor="middle"
+        class="desc"
+        fill="#1da9ff">
+    Data Analysis
+  </text>
+
+  <!-- Scikit Learn -->
+  <text x="890" y="535"
+        text-anchor="middle"
+        font-size="35"
+        font-weight="bold"
+        fill="#f39b3d">
+    sklearn
+  </text>
+
+  <text x="890" y="591"
+        text-anchor="middle"
+        class="name">
+    Scikit-learn
+  </text>
+
+  <text x="890" y="618"
+        text-anchor="middle"
+        class="desc"
+        fill="#1da9ff">
+    ML Library
+  </text>
+
+  <!-- TensorFlow -->
+  <text x="1090" y="535"
+        text-anchor="middle"
+        font-size="52"
+        font-weight="bold"
+        fill="#ff9d12">
+    TF
+  </text>
+
+  <text x="1090" y="591"
+        text-anchor="middle"
+        class="name">
+    TensorFlow
+  </text>
+
+  <text x="1090" y="618"
+        text-anchor="middle"
+        class="desc"
+        fill="#1da9ff">
+    Deep Learning
+  </text>
+
+  <!-- Matplotlib -->
+  <text x="1290" y="535"
+        text-anchor="middle"
+        font-size="45"
+        fill="#8dd8ff">
+    ◌
+  </text>
+
+  <text x="1290" y="591"
+        text-anchor="middle"
+        class="name">
+    Matplotlib
+  </text>
+
+  <text x="1290" y="618"
+        text-anchor="middle"
+        class="desc"
+        fill="#1da9ff">
+    Data Visualization
+  </text>
+
+
+  <!-- CYBER SECURITY -->
+  <rect x="130" y="696"
+        width="1276"
+        height="208"
+        rx="20"
+        fill="#0a0718"
+        stroke="#c16cff"
+        stroke-width="2"/>
+
+  <rect x="607" y="676"
+        width="322"
+        height="46"
+        rx="12"
+        fill="#6330a8"
+        stroke="#c77aff"/>
+
+  <text x="768" y="707"
+        text-anchor="middle"
+        class="head">
+    CYBER SECURITY
+  </text>
+
+  <!-- Kali -->
+  <text x="225" y="785"
+        text-anchor="middle"
+        font-size="45"
+        font-weight="bold"
+        fill="#eeeeee">
+    KALI
+  </text>
+
+  <text x="225" y="835"
+        text-anchor="middle"
+        class="name">
+    Kali Linux
+  </text>
+
+  <text x="225" y="862"
+        text-anchor="middle"
+        class="desc"
+        fill="#c77aff">
+    Penetration Testing
+  </text>
+
+  <!-- Wireshark -->
+  <text x="455" y="785"
+        text-anchor="middle"
+        font-size="45"
+        fill="#2bb7ff">
+    ◒
+  </text>
+
+  <text x="455" y="835"
+        text-anchor="middle"
+        class="name">
+    Wireshark
+  </text>
+
+  <text x="455" y="862"
+        text-anchor="middle"
+        class="desc"
+        fill="#c77aff">
+    Network Analysis
+  </text>
+
+  <!-- Nmap -->
+  <text x="675" y="785"
+        text-anchor="middle"
+        font-size="45"
+        fill="#eeeeee">
+    ◉
+  </text>
+
+  <text x="675" y="835"
+        text-anchor="middle"
+        class="name">
+    Nmap
+  </text>
+
+  <text x="675" y="862"
+        text-anchor="middle"
+        class="desc"
+        fill="#c77aff">
+    Network Scanning
+  </text>
+
+  <!-- Metasploit -->
+  <text x="890" y="785"
+        text-anchor="middle"
+        font-size="44"
+        font-weight="bold"
+        fill="#3d78bd">
+    M
+  </text>
+
+  <text x="890" y="835"
+        text-anchor="middle"
+        class="name">
+    Metasploit
+  </text>
+
+  <text x="890" y="862"
+        text-anchor="middle"
+        class="desc"
+        fill="#c77aff">
+    Exploitation Framework
+  </text>
+
+  <!-- Burp -->
+  <text x="1090" y="785"
+        text-anchor="middle"
+        font-size="45"
+        fill="#ff7a25">
+    ▣
+  </text>
+
+  <text x="1090" y="835"
+        text-anchor="middle"
+        class="name">
+    Burp Suite
+  </text>
+
+  <text x="1090" y="862"
+        text-anchor="middle"
+        class="desc"
+        fill="#c77aff">
+    Web Security Testing
+  </text>
+
+  <!-- OWASP -->
+  <text x="1290" y="785"
+        text-anchor="middle"
+        font-size="48"
+        fill="#b46cff">
+    ♙
+  </text>
+
+  <text x="1290" y="835"
+        text-anchor="middle"
+        class="name">
+    OWASP Top 10
+  </text>
+
+  <text x="1290" y="862"
+        text-anchor="middle"
+        class="desc"
+        fill="#c77aff">
+    Web Security Risks
+  </text>
+
+
+  <!-- Footer -->
+  <rect x="130" y="934"
+        width="1276"
+        height="65"
+        rx="16"
+        fill="#061021"
+        stroke="#182844"/>
+
+  <text x="165" y="975"
+        font-size="30"
+        fill="#35d67b">
+    &lt;/&gt;
+  </text>
+
+  <text x="208" y="975"
+        class="footer">
+    Full Stack Development
+  </text>
+
+  <line x1="500" y1="950"
+        x2="500" y2="984"
+        stroke="#324058"/>
+
+  <text x="545" y="975"
+        font-size="30"
+        fill="#22a9ff">
+    ✦
+  </text>
+
+  <text x="585" y="975"
+        class="footer">
+    Machine Learning Basics
+  </text>
+
+  <line x1="820" y1="950"
+        x2="820" y2="984"
+        stroke="#324058"/>
+
+  <text x="865" y="975"
+        font-size="30"
+        fill="#a86cff">
+    ♢
+  </text>
+
+  <text x="905" y="975"
+        class="footer">
+    Secure Applications
+  </text>
+
+  <line x1="1120" y1="950"
+        x2="1120" y2="984"
+        stroke="#324058"/>
+
+  <text x="1160" y="975"
+        font-size="30"
+        fill="#71d65b">
+    &gt;_
+  </text>
+
+  <text x="1210" y="975"
+        class="footer">
+    Problem Solving
+  </text>
+
+</svg>
