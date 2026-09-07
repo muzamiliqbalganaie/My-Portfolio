@@ -22,7 +22,7 @@
     "gsap": "^3.12.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-globe.gl": "^2.33.2",
+    "react-globe.gl": "^2.38.0",
     "react-responsive": "^10.0.1"
   },
   "devDependencies": {
