@@ -24,34 +24,36 @@ const Footer = () => {
     return (
         <section className="c-space my-20 " id='social-links'>
             <footer className="w-full flex flex-col lg:flex-row items-center justify-between gap-8 px-4 sm:px-6 py-8">
-                <div className="flex flex-col items-start md:items-center gap-2">
+                <div className="flex flex-col items-center md:items-center gap-2 text-center">
                     <div className="flex items-center gap-3">
                         <img src="/assets/hacker.svg" alt="Muzamil Iqbal" className="w-10 h-10 rounded-full border-2 border-purple-500 shadow-lg" />
                         <span className="font-extrabold text- text-white tracking-wide">Muzamil Iqbal</span>
                     </div>
-                    <span className="text-[12px] text-purple-300 bg-white bg-opacity-10 px-3 py-1 rounded-full shadow-sm mt-1">Curious •  Designer & Developer</span>
+                    <span className="text-[11px] sm:text-[12px] text-purple-300 bg-white bg-opacity-10 px-3 py-1 rounded-full shadow-sm mt-1">Curious •  Designer & Developer</span>
                 </div>
 
-                <div className="relative w-full min-w-0 flex justify-center lg:justify-end flex-col items-center lg:items-center gap-2">
-                    <div className="overflow-hidden rounded-xl px-12 sm:px-20 py-2 shadow-lg">
-                        <div className="flex min-w-0 gap-3 sm:gap-5 items-center">
-                            {socialLinks.slice(sliderIndex, sliderIndex + 6).map((link,) => (
-                                <a key={link.title} href={link.href} target="_blank" rel="noopener noreferrer" className={link.className} title={link.title}>
-                                    <img src={link.icon} alt={link.title} className="w-7 h-7 object-contain" />
-                                </a>
-                            ))}
+                <div className="relative w-full min-w-0 max-w-[520px] flex justify-center lg:justify-end flex-col items-center gap-2">
+                    <div className="flex w-full min-w-0 items-center gap-1 rounded-xl px-1 sm:px-2 py-2 shadow-lg">
+                        <button type="button" onClick={() => setSliderIndex(Math.max(0, sliderIndex - 1))} aria-label="Previous social links" className="shrink-0 bg-black bg-opacity-40 hover:bg-opacity-80 text-white p-1.5 sm:p-2 rounded-full transition-all z-10">
+                            <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+                        </button>
+                        <div className="min-w-0 flex-1 overflow-hidden">
+                            <div className="flex min-w-max justify-center gap-2 sm:gap-5 items-center">
+                                {socialLinks.slice(sliderIndex, sliderIndex + 6).map((link,) => (
+                                    <a key={link.title} href={link.href} target="_blank" rel="noopener noreferrer" className={`${link.className} shrink-0`} title={link.title}>
+                                        <img src={link.icon} alt={link.title} className="w-7 h-7 object-contain" />
+                                    </a>
+                                ))}
+                            </div>
                         </div>
+                        <button type="button" onClick={() => setSliderIndex(Math.min(socialLinks.length - 6, sliderIndex + 1))} aria-label="Next social links" className="shrink-0 bg-black bg-opacity-40 hover:bg-opacity-80 text-white p-1.5 sm:p-2 rounded-full transition-all z-10">
+                            <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+                        </button>
                     </div>
-                    <button type="button" onClick={() => setSliderIndex(Math.max(0, sliderIndex - 1))} className="absolute left-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 hover:bg-opacity-80 text-white rounded-full p-2 shadow-lg transition-all duration-300 z-10 hover:scale-110" style={{ display: sliderIndex === 0 ? 'none' : 'block' }}>
-                        <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
-                    </button>
-                    <button type="button" onClick={() => setSliderIndex(Math.min(socialLinks.length - 6, sliderIndex + 1))} className="absolute right-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 hover:bg-opacity-80 text-white rounded-full p-2 shadow-lg transition-all duration-300 z-10 hover:scale-110" style={{ display: sliderIndex >= socialLinks.length - 6 ? 'none' : 'block' }}>
-                        <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
-                    </button>
                 </div>
 
 
-                <div className="flex flex-col items-end gap-1">
+                <div className="flex flex-col items-center lg:items-end gap-1 text-center lg:text-right">
                     <p className="text-white text-sm font-medium footer-3dtech ">© 2026 MIG</p>
                     <span className="text-[12px] text-gray-400 crafted-footer-text">
                         Crafted with <span className="animated-heart">❤️</span>

@@ -22,7 +22,7 @@ const Navbar = () => {
 
 
     return (
-        <navbar className='fixed top-0 left-0 right-0 z-50 bg-black/90'>
+        <nav className='fixed top-0 left-0 right-0 z-50 bg-black/90'>
             <div className='min-w-7xl mx-auto '>
                 <div className='flex justify-between items-center py-5 mx-auto c-space'>
                     <a href="/" className='text-neutral-400 font-bold text-xl hover:text-white transition-colors'>
@@ -38,11 +38,11 @@ const Navbar = () => {
             </div>
 
             <div className={`nav-sidebar ${isOpen ? 'max-h-screen' : 'max-h-0'} transition-all duration-300 overflow-hidden`}>
-                <subnav className='p-5'>
+                <nav className='p-5'>
                     <NavItems />
-                </subnav>
+                </nav>
             </div>
-        </navbar>
+        </nav>
     )
 }
 
