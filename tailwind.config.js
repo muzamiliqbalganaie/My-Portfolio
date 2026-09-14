@@ -4,7 +4,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                generalsans: ['General Sans', 'sans-serif'],
+                generalsans: ['General Sans', 'Trebuchet MS', 'Segoe UI', 'sans-serif'],
             },
             colors: {
                 black: {
