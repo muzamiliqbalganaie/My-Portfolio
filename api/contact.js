@@ -104,7 +104,13 @@ export default async function handler(request, response) {
             // The server returned non-JSON content, such as a 404 page.
         }
 
-        console.error('EmailJS error:', message);
+        console.error('EmailJS error:', {
+            status: emailResponse.status,
+            message,
+            serviceConfigured: Boolean(serviceId),
+            templateConfigured: Boolean(templateId),
+            publicKeyConfigured: Boolean(publicKey),
+        });
         return json(response, { error: 'Unable to send message' }, 502);
     }
 
