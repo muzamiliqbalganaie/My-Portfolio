@@ -3,14 +3,16 @@ import { useEffect, useRef, useState } from 'react';
 import useAlert from '../hooks/useAlert.js';
 import Alert from '../components/Alert.jsx';
 
+
 const { VITE_TURNSTILE_SITE_KEY } = import.meta.env;
+const hasTurnstileConfig = Boolean(VITE_TURNSTILE_SITE_KEY);
 
 const Contact = () => {
     const formRef = useRef();
     const turnstileRef = useRef();
     const turnstileWidgetId = useRef();
 
-    const { alert, showAlert, hideAlert } = useAlert();
+    const { alert, showAlert } = useAlert();
     const [loading, setLoading] = useState(false);
     const [turnstileToken, setTurnstileToken] = useState('');
 
@@ -31,12 +33,13 @@ const Contact = () => {
     };
 
     useEffect(() => {
-        if (!VITE_TURNSTILE_SITE_KEY) return undefined;
+        if (!hasTurnstileConfig) return undefined;
 
         const renderWidget = () => {
             if (!turnstileRef.current || !window.turnstile) return false;
             turnstileWidgetId.current = window.turnstile.render(turnstileRef.current, {
                 sitekey: VITE_TURNSTILE_SITE_KEY,
+                action: 'contact',
                 callback: setTurnstileToken,
                 'expired-callback': () => setTurnstileToken(''),
                 'error-callback': () => setTurnstileToken(''),
@@ -61,50 +64,32 @@ const Contact = () => {
         };
     }, []);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!turnstileToken || loading) return;
         setLoading(true);
 
-        fetch('/api/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ ...form, turnstileToken }),
-        })
-            .then(
-                async (response) => {
-                    if (!response.ok) throw new Error((await response.json()).error || 'Unable to send message');
-                    setLoading(false);
-                    showAlert({
-                        show: true,
-                        text: 'Thanks for your message 👌',
-                        type: 'success',
-                    });
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ...form, turnstileToken }),
+            });
+            const result = await response.json().catch(() => ({}));
+            if (!response.ok) throw new Error(result.error || 'Unable to send message');
 
-                    setTimeout(() => {
-                        hideAlert(false);
-                        setForm({
-                            name: '',
-                            email: '',
-                            message: '',
-                        });
-                        setTurnstileToken('');
-                        if (window.turnstile && turnstileWidgetId.current !== undefined) window.turnstile.reset(turnstileWidgetId.current);
-                    }, 3000);
-                },
-                (error) => {
-                    setLoading(false);
-                    console.error(error);
-
-                    showAlert({
-                        show: true,
-                        text: "I didn't receive your message 😢",
-                        type: 'danger',
-                    });
-                    setTurnstileToken('');
-                    if (window.turnstile && turnstileWidgetId.current !== undefined) window.turnstile.reset(turnstileWidgetId.current);
-                },
-            );
+            showAlert({ show: true, text: 'Thanks for your message 👌', type: 'success' });
+            setForm({ name: '', email: '', message: '' });
+        } catch (error) {
+            console.error('Contact form error:', error);
+            showAlert({ show: true, text: "I didn't receive your message 😢", type: 'danger' });
+        } finally {
+            setLoading(false);
+            setTurnstileToken('');
+            if (window.turnstile && turnstileWidgetId.current !== undefined) {
+                window.turnstile.reset(turnstileWidgetId.current);
+            }
+        }
     };
 
     return (
@@ -162,7 +147,13 @@ const Contact = () => {
 
                         <input type="text" name="company" tabIndex="-1" autoComplete="off" aria-hidden="true" className="hidden" />
 
-                        <div ref={turnstileRef} aria-label="Security check" />
+                        {hasTurnstileConfig ? (
+                            <div ref={turnstileRef} aria-label="Security check" />
+                        ) : (
+                            <p className="text-sm text-red-300" role="alert">
+                                The contact form is not configured yet. Add VITE_TURNSTILE_SITE_KEY to your .env file.
+                            </p>
+                        )}
 
                         <button className="field-btn flex items-center justify-center gap-2 hover:scale-110  hover:text-emerald-100" type="submit" disabled={loading || !turnstileToken}>
                             {loading ? (

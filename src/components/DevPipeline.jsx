@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { useRef, useEffect, useState } from 'react'
-=======
 import { useRef, useState } from 'react'
->>>>>>> feature-todays-changes
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
@@ -25,11 +21,6 @@ const DevPipeline = (props) => {
             if (!pipelineRef.current) return
 
             const items = pipelineRef.current.querySelectorAll('.pipeline-item')
-<<<<<<< HEAD
-            
-=======
-
->>>>>>> feature-todays-changes
             // Stagger animation
             if (items.length > 0) {
                 gsap.from(items, {
