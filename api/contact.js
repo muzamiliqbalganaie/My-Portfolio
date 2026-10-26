@@ -101,7 +101,8 @@ export default async function handler(request, response) {
         let message = 'Unable to send message';
 
         try {
-            message = JSON.parse(body).error || message;
+            const errorBody = JSON.parse(body);
+            message = errorBody.error || errorBody.text || errorBody.message || message;
         } catch {
             // The server returned non-JSON content, such as a 404 page.
         }
@@ -112,6 +113,7 @@ export default async function handler(request, response) {
             serviceConfigured: Boolean(serviceId),
             templateConfigured: Boolean(templateId),
             publicKeyConfigured: Boolean(publicKey),
+            privateKeyConfigured: Boolean(privateKey),
         });
         return json(response, { error: 'Unable to send message' }, 502);
     }

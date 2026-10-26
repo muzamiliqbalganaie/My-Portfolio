@@ -35,6 +35,12 @@ Set these variables in the deployment provider, never in Git:
 - `EMAILJS_SERVICE_ID`
 - `EMAILJS_TEMPLATE_ID`
 - `EMAILJS_PUBLIC_KEY`
+- `EMAILJS_PRIVATE_KEY`
+
+`EMAILJS_PRIVATE_KEY` is used only by the server-side function and must not be
+exposed through a `VITE_` variable or committed to the repository. After
+changing EmailJS credentials in the deployment provider, redeploy the
+application so the function receives the updated values.
 
 The API limits each IP address to five successful submissions per hour. The in-memory limit is per serverless instance; use a shared edge rate-limit provider if the deployment needs a globally consistent limit.
 
