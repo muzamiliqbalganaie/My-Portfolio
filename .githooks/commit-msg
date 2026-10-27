@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if grep -Eiq '^Co-authored-by:[[:space:]]*Copilot[[:space:]]*<223556219\+Copilot@users\.noreply\.github\.com>[[:space:]]*$' "$1"; then
+    echo "Commit blocked: remove the Copilot co-author trailer before committing." >&2
+    exit 1
+fi
