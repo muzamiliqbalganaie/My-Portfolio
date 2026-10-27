@@ -4,6 +4,9 @@ const MAX_REQUESTS = 5;
 const TURNSTILE_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 
 const json = (response, body, status) => response.status(status).json(body);
+const envValue = (...names) => names
+    .map((name) => globalThis.process.env[name]?.trim())
+    .find(Boolean);
 
 async function validateTurnstile(token, remoteip) {
     const secret = globalThis.process.env.TURNSTILE_SECRET_KEY;
@@ -62,10 +65,10 @@ export default async function handler(request, response) {
         return json(response, { error: 'Security check failed' }, 403);
     }
 
-    const serviceId = globalThis.process.env.EMAILJS_SERVICE_ID || globalThis.process.env.VITE_APP_EMAILJS_SERVICE_ID;
-    const templateId = globalThis.process.env.EMAILJS_TEMPLATE_ID || globalThis.process.env.VITE_APP_EMAILJS_TEMPLATE_ID;
-    const publicKey = globalThis.process.env.EMAILJS_PUBLIC_KEY || globalThis.process.env.VITE_APP_EMAILJS_PUBLIC_KEY;
-    const privateKey = globalThis.process.env.EMAILJS_PRIVATE_KEY;
+    const serviceId = envValue('EMAILJS_SERVICE_ID', 'VITE_APP_EMAILJS_SERVICE_ID');
+    const templateId = envValue('EMAILJS_TEMPLATE_ID', 'VITE_APP_EMAILJS_TEMPLATE_ID');
+    const publicKey = envValue('EMAILJS_PUBLIC_KEY', 'VITE_APP_EMAILJS_PUBLIC_KEY');
+    const privateKey = envValue('EMAILJS_PRIVATE_KEY');
     if (!serviceId || !templateId || !publicKey || !privateKey) {
         console.error('Email service is not configured');
         return json(response, { error: 'Email service is not configured' }, 500);
@@ -104,12 +107,12 @@ export default async function handler(request, response) {
             const errorBody = JSON.parse(body);
             message = errorBody.error || errorBody.text || errorBody.message || message;
         } catch {
-            // The server returned non-JSON content, such as a 404 page.
+            message = body.trim() || message;
         }
 
         console.error('EmailJS error:', {
             status: emailResponse.status,
-            message,
+            message: message.slice(0, 500),
             serviceConfigured: Boolean(serviceId),
             templateConfigured: Boolean(templateId),
             publicKeyConfigured: Boolean(publicKey),

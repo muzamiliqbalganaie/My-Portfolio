@@ -178,7 +178,7 @@ const ForceGraph = ({ data, filterGroups = [], highlightNode = null, onNodeClick
             d3.select(container).selectAll('*').remove()
         }
 
-    }, [data, filterGroups, width, height, highlightNode])
+    }, [data, filterGroups, width, height, highlightNode, onNodeClick])
 
     return (
         <div ref={ref} style={{ width: '100%', height: '100%', position: 'relative' }}></div>

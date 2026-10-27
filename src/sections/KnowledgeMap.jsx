@@ -1,8 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import ForceGraph from '../components/ForceGraph'
 import { knowledgeMap } from '../constants/index'
 
 const groups = ['Skill', 'Project', 'Tool']
+
+const steps = [
+    { title: 'ER Modeling', text: 'Start with ER Modeling — entities, attributes, relationships.', node: 'ER Modeling' },
+    { title: 'Normalization', text: 'Learn normalization to structure your relational data.', node: 'Normalization' },
+    { title: 'React + Projects', text: 'See how skills map to real projects in your portfolio.', node: 'Project A' }
+]
 
 const StudyPanel = ({ activeStep, steps, onNext, onPrev, onClose }) => {
     if (!steps || steps.length === 0) return null
@@ -44,12 +50,6 @@ const KnowledgeMap = () => {
     const [studyMode, setStudyMode] = useState(false)
     const [step, setStep] = useState(0)
 
-    const steps = [
-        { title: 'ER Modeling', text: 'Start with ER Modeling — entities, attributes, relationships.', node: 'ER Modeling' },
-        { title: 'Normalization', text: 'Learn normalization to structure your relational data.', node: 'Normalization' },
-        { title: 'React + Projects', text: 'See how skills map to real projects in your portfolio.', node: 'Project A' }
-    ]
-
     useEffect(() => {
         if (studyMode) setHighlight(steps[step].node)
         else setHighlight(null)
@@ -62,10 +62,9 @@ const KnowledgeMap = () => {
         setFilters(next)
     }
 
-    const onNodeClick = (node) => {
-        // toggle highlight on click
+    const onNodeClick = useCallback((node) => {
         setHighlight(prev => (prev === node.id ? null : node.id))
-    }
+    }, [])
 
     return (
         <section className="px-4 sm:px-8 md:px-16 relative" id="kmap">
