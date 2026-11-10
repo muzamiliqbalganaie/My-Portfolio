@@ -70,8 +70,8 @@ const About = () => {
                                 backgroundImageOpacity={0.5}
                                 showAtmosphere
                                 showGraticules
-                                globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-                                bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
+                                globeImageUrl="https://unpkg.com/three-globe/example/img/earth-night.jpg"
+                                bumpImageUrl="https://unpkg.com/three-globe/example/img/earth-topology.png"
                                 labelsData={[{ lat: 40, lng: -100, text: 'Anantnag, J&K', color: 'white', size: 15 }]}
                             />
                         </div>
